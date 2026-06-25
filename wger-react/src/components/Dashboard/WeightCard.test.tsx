@@ -1,0 +1,72 @@
+import { QueryClientProvider } from "@tanstack/react-query";
+import { render, screen } from '@testing-library/react';
+import { useBodyWeightQuery } from "@/components/Weight";
+import { WeightCard } from "@/components/Dashboard/WeightCard";
+import { testQueryClient } from "@/tests/queryClient";
+import { testWeightEntries } from "@/tests/weight/testData";
+import type { Mock } from 'vitest';
+
+vi.mock("@/components/Weight/queries");
+
+describe("test the WeightCard component", () => {
+
+    describe("Weights are available", () => {
+        beforeEach(() => {
+            (useBodyWeightQuery as Mock).mockImplementation(() => ({
+                isSuccess: true,
+                isLoading: false,
+                data: testWeightEntries
+            }));
+        });
+
+        afterEach(() => {
+            vi.restoreAllMocks();
+            vi.useRealTimers();
+        });
+
+        test('renders the weights correctly', async () => {
+            // Act
+            render(
+                <QueryClientProvider client={testQueryClient}>
+                    <WeightCard />
+                </QueryClientProvider>
+            );
+
+            // Assert
+            expect(useBodyWeightQuery).toHaveBeenCalled();
+            expect(screen.getByText('100')).toBeInTheDocument();
+            expect(screen.getByText('90')).toBeInTheDocument();
+            expect(screen.getByText('110')).toBeInTheDocument();
+        });
+    });
+
+
+    describe("No weight entries available", () => {
+
+        beforeEach(() => {
+            (useBodyWeightQuery as Mock).mockImplementation(() => ({
+                isSuccess: true,
+                isLoading: false,
+                data: null
+            }));
+        });
+
+        test('renders the call to action correctly', async () => {
+
+            // Act
+            render(
+                <QueryClientProvider client={testQueryClient}>
+                    <WeightCard />
+                </QueryClientProvider>
+            );
+
+            // Assert
+            expect(useBodyWeightQuery).toHaveBeenCalled();
+            expect(screen.getByText('nothingHereYet')).toBeInTheDocument();
+            expect(screen.getByText('nothingHereYetAction')).toBeInTheDocument();
+            expect(screen.getByText('add')).toBeInTheDocument();
+        });
+    });
+});
+
+

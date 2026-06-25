@@ -1,0 +1,48 @@
+import { Adapter } from "@/core/lib/Adapter";
+
+export class MeasurementEntry {
+
+    constructor(
+        public id: string | null,
+        public category: string,
+        public date: Date,
+        public value: number,
+        public notes: string
+    ) {
+    }
+
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    static fromJson(json: any): MeasurementEntry {
+        return adapter.fromJson(json);
+    }
+
+    toJson() {
+        return adapter.toJson(this);
+    }
+}
+
+
+class MeasurementEntryAdapter implements Adapter<MeasurementEntry> {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    fromJson(item: any) {
+        return new MeasurementEntry(
+            item.id,
+            item.category,
+            new Date(item.date),
+            item.value,
+            item.notes
+        );
+    }
+
+    toJson(item: MeasurementEntry) {
+        return {
+            id: item.id,
+            category: item.category,
+            date: item.date,
+            value: item.value,
+            notes: item.notes
+        };
+    }
+}
+
+const adapter = new MeasurementEntryAdapter();

@@ -1,0 +1,64 @@
+import { QueryClientProvider } from "@tanstack/react-query";
+import { render, screen } from '@testing-library/react';
+import { TrophiesCard } from "@/components/Dashboard/TrophiesCard";
+import { useUserTrophiesQuery } from "@/components/Trophies";
+import { testQueryClient } from "@/tests/queryClient";
+import { testUserTrophies } from "@/tests/trophies/trophiesTestData";
+import type { Mock } from 'vitest';
+
+vi.mock("@/components/Trophies/queries/trophies");
+
+describe("test the TrophiesCard component", () => {
+
+    describe("Trophies available", () => {
+        beforeEach(() => {
+            (useUserTrophiesQuery as Mock).mockImplementation(() => ({
+                isSuccess: true,
+                isLoading: false,
+                data: testUserTrophies()
+            }));
+        });
+
+        test('renders the trophies correctly', async () => {
+            // Act
+            render(
+                <QueryClientProvider client={testQueryClient}>
+                    <TrophiesCard />
+                </QueryClientProvider>
+            );
+
+            // Assert
+            expect(useUserTrophiesQuery).toHaveBeenCalled();
+            expect(screen.getByText('Beginner')).toBeInTheDocument();
+            expect(screen.getByText('Unstoppable')).toBeInTheDocument();
+        });
+    });
+
+
+    describe("No trophies available", () => {
+
+        beforeEach(() => {
+            (useUserTrophiesQuery as Mock).mockImplementation(() => ({
+                isSuccess: true,
+                isLoading: false,
+                data: []
+            }));
+        });
+
+        test('correctly shows custom empty card, without call to action button', async () => {
+
+            // Act
+            render(
+                <QueryClientProvider client={testQueryClient}>
+                    <TrophiesCard />
+                </QueryClientProvider>
+            );
+
+            // Assert
+            expect(useUserTrophiesQuery).toHaveBeenCalled();
+            expect(screen.getByText('nothingHereYet')).toBeInTheDocument();
+            expect(screen.queryByText('nothingHereYetAction')).not.toBeInTheDocument();
+            expect(screen.queryByText('add')).not.toBeInTheDocument();
+        });
+    });
+});
