@@ -1,0 +1,80 @@
+[
+  {
+    "Source": "192.168.65.1:39998",
+    "Destination": "localhost",
+    "RequestBody": "{\"name\": \"EntryCountTest-2026\", \"unit\": \"cm\"}",
+    "ResponseBody": "{\"id\": \"c0000000-0000-0000-0000-000000000001\", \"name\": \"EntryCountTest-2026\", \"unit\": \"cm\", \"entry_count\": 0}",
+    "RequestHeaders": {
+      "Content-Type": [
+        "application/json"
+      ],
+      "Authorization": [
+        "Bearer SKYRAMP_PLACEHOLDER_TOKEN"
+      ]
+    },
+    "ResponseHeaders": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "Method": "POST",
+    "Path": "/api/v2/measurement-category/",
+    "QueryParams": {},
+    "StatusCode": 201,
+    "Port": 80,
+    "Timestamp": "2026-06-25T23:42:21.533Z",
+    "Scheme": "http"
+  },
+  {
+    "Source": "192.168.65.1:39998",
+    "Destination": "localhost",
+    "RequestBody": "{\"category\": \"c0000000-0000-0000-0000-000000000001\", \"date\": \"2026-06-25\", \"value\": 42.5, \"notes\": \"test entry\"}",
+    "ResponseBody": "{\"id\": \"d0000000-0000-0000-0000-000000000001\", \"category\": \"c0000000-0000-0000-0000-000000000001\", \"date\": \"2026-06-25\", \"value\": 42.5, \"notes\": \"test entry\"}",
+    "RequestHeaders": {
+      "Content-Type": [
+        "application/json"
+      ],
+      "Authorization": [
+        "Bearer SKYRAMP_PLACEHOLDER_TOKEN"
+      ]
+    },
+    "ResponseHeaders": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "Method": "POST",
+    "Path": "/api/v2/measurement/",
+    "QueryParams": {},
+    "StatusCode": 201,
+    "Port": 80,
+    "Timestamp": "2026-06-25T23:42:21.533Z",
+    "Scheme": "http"
+  },
+  {
+    "Source": "192.168.65.1:39998",
+    "Destination": "localhost",
+    "RequestBody": "",
+    "ResponseBody": "{\"id\": \"c0000000-0000-0000-0000-000000000001\", \"name\": \"EntryCountTest-2026\", \"unit\": \"cm\", \"entry_count\": 1}",
+    "RequestHeaders": {
+      "Content-Type": [
+        "application/json"
+      ],
+      "Authorization": [
+        "Bearer SKYRAMP_PLACEHOLDER_TOKEN"
+      ]
+    },
+    "ResponseHeaders": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "Method": "GET",
+    "Path": "/api/v2/measurement-category/c0000000-0000-0000-0000-000000000001/",
+    "QueryParams": {},
+    "StatusCode": 200,
+    "Port": 80,
+    "Timestamp": "2026-06-25T23:42:21.533Z",
+    "Scheme": "http"
+  }
+]
