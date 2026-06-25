@@ -1,0 +1,80 @@
+[
+  {
+    "Source": "192.168.65.1:39998",
+    "Destination": "localhost",
+    "RequestBody": "{\"date\":\"2024-06-15T10:00:00Z\",\"weight\":\"75.50\"}",
+    "ResponseBody": "{\"id\":1,\"date\":\"2024-06-15T10:00:00Z\",\"weight\":\"75.50\",\"user\":1}",
+    "RequestHeaders": {
+      "Content-Type": [
+        "application/json"
+      ],
+      "Authorization": [
+        "Bearer SKYRAMP_PLACEHOLDER_TOKEN"
+      ]
+    },
+    "ResponseHeaders": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "Method": "POST",
+    "Path": "/api/v2/weightentry/",
+    "QueryParams": {},
+    "StatusCode": 201,
+    "Port": 80,
+    "Timestamp": "2026-06-25T23:38:08.329Z",
+    "Scheme": "http"
+  },
+  {
+    "Source": "192.168.65.1:39998",
+    "Destination": "localhost",
+    "RequestBody": "{\"date\":\"2023-03-10T10:00:00Z\",\"weight\":\"80.25\"}",
+    "ResponseBody": "{\"id\":2,\"date\":\"2023-03-10T10:00:00Z\",\"weight\":\"80.25\",\"user\":1}",
+    "RequestHeaders": {
+      "Content-Type": [
+        "application/json"
+      ],
+      "Authorization": [
+        "Bearer SKYRAMP_PLACEHOLDER_TOKEN"
+      ]
+    },
+    "ResponseHeaders": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "Method": "POST",
+    "Path": "/api/v2/weightentry/",
+    "QueryParams": {},
+    "StatusCode": 201,
+    "Port": 80,
+    "Timestamp": "2026-06-25T23:38:08.329Z",
+    "Scheme": "http"
+  },
+  {
+    "Source": "192.168.65.1:39998",
+    "Destination": "localhost",
+    "RequestBody": "",
+    "ResponseBody": "{\"count\":2,\"results\":[{\"id\":1,\"date\":\"2024-06-15T10:00:00Z\",\"weight\":\"75.50\"},{\"id\":2,\"date\":\"2023-03-10T10:00:00Z\",\"weight\":\"80.25\"}]}",
+    "RequestHeaders": {
+      "Content-Type": [
+        "application/json"
+      ],
+      "Authorization": [
+        "Bearer SKYRAMP_PLACEHOLDER_TOKEN"
+      ]
+    },
+    "ResponseHeaders": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "Method": "GET",
+    "Path": "/api/v2/weightentry/",
+    "QueryParams": {},
+    "StatusCode": 200,
+    "Port": 80,
+    "Timestamp": "2026-06-25T23:38:08.329Z",
+    "Scheme": "http"
+  }
+]
