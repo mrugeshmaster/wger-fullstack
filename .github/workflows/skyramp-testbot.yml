@@ -45,3 +45,4 @@ jobs:
           targetReadyCheckTimeout: '900'
           targetTeardownCommand: 'docker compose -f .skyramp/sut/docker-compose.yml down -v'
           authTokenCommand: 'bash .skyramp/sut/get-token.sh'
+          skyrampMcpVersion: '0.2.150-rc.ui.mntnc'
