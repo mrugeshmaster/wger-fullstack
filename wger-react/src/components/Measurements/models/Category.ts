@@ -9,7 +9,8 @@ export class MeasurementCategory {
         public id: string,
         public name: string,
         public unit: string,
-        entries?: MeasurementEntry[]
+        entries?: MeasurementEntry[],
+        public entryCount?: number,
     ) {
         if (entries) {
             this.entries = entries;
@@ -33,7 +34,9 @@ class MeasurementCategoryAdapter implements Adapter<MeasurementCategory> {
         return new MeasurementCategory(
             item.id,
             item.name,
-            item.unit
+            item.unit,
+            undefined,
+            item.entry_count,
         );
     }
 

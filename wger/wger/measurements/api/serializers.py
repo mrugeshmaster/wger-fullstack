@@ -31,9 +31,14 @@ class CategorySerializer(serializers.ModelSerializer):
     Measurement category serializer
     """
 
+    entry_count = serializers.SerializerMethodField()
+
+    def get_entry_count(self, obj):
+        return obj.measurement_set.count()
+
     class Meta:
         model = Category
-        fields = ('id', 'name', 'unit')
+        fields = ('id', 'name', 'unit', 'entry_count')
 
 
 class MeasurementSerializer(serializers.ModelSerializer):
