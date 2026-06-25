@@ -8,27 +8,17 @@ metadata:
   createdAt: "2026-06-25T23:06:30.817Z"
   updatedAt: "2026-06-25T23:06:30.824Z"
 services:
-  - serviceName: wger-fullstack-backend
+  - serviceName: wger-server
     language: python
     framework: pytest
-    testDirectory: tests/skyramp/wger
+    testDirectory: tests/skyramp
     api:
-      schemaPath: http://localhost/api/v2/schema/
-      authType: bearer
+      schemaPath: http://localhost/api/v2/schema?format=json
+      authType: token
       authHeader: Authorization
+      authScheme: Token
       baseUrl: http://localhost
     runtimeDetails:
-      serverStartCommand: docker compose -f .skyramp/sut/docker-compose.yml up -d web
+      serverStartCommand: docker compose -f .skyramp/sut/docker-compose.yml up -d
       runtime: docker
-      dockerNetwork: sut_default
-  - serviceName: wger-fullstack-wger-react-frontend
-    language: typescript
-    framework: playwright
-    testDirectory: tests/skyramp/wger-react
-    api:
-      authType: none
-      authHeader: ""
-      baseUrl: http://localhost:3000
-    runtimeDetails:
-      serverStartCommand: npm run start
-      runtime: local
+      dockerNetwork: wger_testbot_network
