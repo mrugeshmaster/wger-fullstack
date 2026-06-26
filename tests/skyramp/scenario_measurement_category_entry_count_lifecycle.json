@@ -1,0 +1,80 @@
+[
+  {
+    "Source": "192.168.65.1:39998",
+    "Destination": "localhost",
+    "RequestBody": "{\"name\": \"Chest\", \"unit\": \"cm\"}",
+    "ResponseBody": "{\"id\": 1, \"name\": \"Chest\", \"unit\": \"cm\", \"entry_count\": 0}",
+    "RequestHeaders": {
+      "Content-Type": [
+        "application/json"
+      ],
+      "Authorization": [
+        "Token SKYRAMP_PLACEHOLDER_TOKEN"
+      ]
+    },
+    "ResponseHeaders": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "Method": "POST",
+    "Path": "/api/v2/measurement-category/",
+    "QueryParams": {},
+    "StatusCode": 201,
+    "Port": 80,
+    "Timestamp": "2026-06-26T00:03:54.349Z",
+    "Scheme": "http"
+  },
+  {
+    "Source": "192.168.65.1:39998",
+    "Destination": "localhost",
+    "RequestBody": "{\"category\": 1, \"date\": \"2026-01-15\", \"value\": 95.5, \"notes\": \"\"}",
+    "ResponseBody": "{\"id\": 1, \"category\": 1, \"date\": \"2026-01-15\", \"value\": 95.5, \"notes\": \"\"}",
+    "RequestHeaders": {
+      "Content-Type": [
+        "application/json"
+      ],
+      "Authorization": [
+        "Token SKYRAMP_PLACEHOLDER_TOKEN"
+      ]
+    },
+    "ResponseHeaders": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "Method": "POST",
+    "Path": "/api/v2/measurement/",
+    "QueryParams": {},
+    "StatusCode": 201,
+    "Port": 80,
+    "Timestamp": "2026-06-26T00:03:54.349Z",
+    "Scheme": "http"
+  },
+  {
+    "Source": "192.168.65.1:39998",
+    "Destination": "localhost",
+    "RequestBody": "",
+    "ResponseBody": "{\"id\": 1, \"name\": \"Chest\", \"unit\": \"cm\", \"entry_count\": 1}",
+    "RequestHeaders": {
+      "Content-Type": [
+        "application/json"
+      ],
+      "Authorization": [
+        "Token SKYRAMP_PLACEHOLDER_TOKEN"
+      ]
+    },
+    "ResponseHeaders": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "Method": "GET",
+    "Path": "/api/v2/measurement-category/1/",
+    "QueryParams": {},
+    "StatusCode": 200,
+    "Port": 80,
+    "Timestamp": "2026-06-26T00:03:54.349Z",
+    "Scheme": "http"
+  }
+]
