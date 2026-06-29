@@ -21,6 +21,8 @@ from wger.weight.models import WeightEntry
 
 
 class WeightEntryFilterSet(filters.FilterSet):
+    year = filters.NumberFilter(field_name='date', lookup_expr='year')
+
     class Meta:
         model = WeightEntry
         fields = {
