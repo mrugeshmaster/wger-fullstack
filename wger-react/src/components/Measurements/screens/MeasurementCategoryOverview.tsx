@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Card, CardActions, CardContent, CardHeader, IconButton, Stack, } from "@mui/material";
+import { Button, Card, CardActions, CardContent, CardHeader, Chip, IconButton, Stack, } from "@mui/material";
 import AddIcon from '@mui/icons-material/Add';
 import { useTranslation } from "react-i18next";
 import { LoadingPlaceholder } from "@/core/ui/LoadingWidget/LoadingWidget";
@@ -24,7 +24,13 @@ export const CategoryList = (props: { category: MeasurementCategory }) => {
 
     return <>
         <Card>
-            <CardHeader title={props.category.name} subheader={props.category.unit} />
+            <CardHeader
+                title={props.category.name}
+                subheader={props.category.unit}
+                action={props.category.entryCount !== undefined
+                    ? <Chip label={props.category.entryCount} size="small" sx={{ mt: 1, mr: 1 }} />
+                    : null}
+            />
             <CardContent>
                 <MeasurementChart category={props.category} />
             </CardContent>
