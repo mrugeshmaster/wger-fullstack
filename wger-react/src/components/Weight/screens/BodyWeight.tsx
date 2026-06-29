@@ -1,4 +1,4 @@
-import { Box, Stack } from "@mui/material";
+import { Box, Chip, Stack } from "@mui/material";
 import { useBodyWeightQuery } from "@/components/Weight/queries";
 import { WeightTable } from "@/components/Weight/widgets/Table";
 import { WeightChart } from "@/components/Weight/widgets/WeightChart";
@@ -23,10 +23,15 @@ export const BodyWeight = () => {
         return <LoadingPlaceholder />;
     }
 
+    const entryCount = weightyQuery.data!.length;
+
     return <WgerContainerRightSidebar
         title={t("weight")}
         mainContent={<Stack spacing={2}>
-            <FilterButtons currentFilter={filter} onFilterChange={handleFilterChange} />
+            <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                <FilterButtons currentFilter={filter} onFilterChange={handleFilterChange} />
+                <Chip label={`${entryCount} ${t('entries')}`} size="small" variant="outlined" />
+            </Box>
             {weightyQuery.data!.length === 0 && <OverviewEmpty />}
             {weightyQuery.data!.length !== 0 && <>
                 <WeightChart weights={weightyQuery.data!} />
