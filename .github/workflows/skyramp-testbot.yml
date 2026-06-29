@@ -40,10 +40,5 @@ jobs:
           skyrampLicenseFile: ${{ secrets.SKYRAMP_LICENSE_FILE }}
           anthropicApiKey: ${{ secrets.SKYRAMP_TESTBOT_API_KEY }}
           githubToken: ${{ steps.skyramp-testbot-app-token.outputs.token }}
-          sutSetupMode: 'none'
-          targetSetupCommand: 'docker compose -f .skyramp/sut/docker-compose.yml up -d --build'
-          targetReadyCheckCommand: 'curl -sf http://localhost/api/v2/version/'
-          targetReadyCheckTimeout: '900'
-          targetTeardownCommand: 'docker compose -f .skyramp/sut/docker-compose.yml down -v'
-          authTokenCommand: 'bash .skyramp/sut/get-token.sh'
+          sutSetupMode: 'docker_compose'
           skyrampMcpVersion: '0.2.9'
